@@ -111,6 +111,9 @@ function _maybeworkon() {
         # Much faster to source the activate file directly rather than use the `workon` command
         local activate_script="$venv_dir/bin/activate"
 
+        # Set UV_PROJECT_ENVIRONMENT for use by the uv shell extension
+        export UV_PROJECT_ENVIRONMENT="$venv_dir"
+
         _validated_source "$activate_script"
     fi
 }
